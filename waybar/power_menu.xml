@@ -1,0 +1,6 @@
+<menu>
+  <item id="shutdown" label="Apagar"/>
+  <item id="reboot" label="Reiniciar"/>
+  <item id="suspend" label="Suspender"/>
+  <item id="hibernate" label="Hibernar"/>
+</menu>
