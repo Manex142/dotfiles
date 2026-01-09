@@ -9,7 +9,7 @@
     "modules-left": [
         "custom/arch",
         "hyprland/workspaces",
-        "hyprland/window"
+        "mpris"
     ],
     // "modules-center": [
     //     "mpris"
@@ -21,31 +21,57 @@
         "battery",
         "clock",
         "tray",
-        "custom/power"
+        "custom/swaync"
     ],
     // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name} {icon}",
+        "format": "{name} {windows}",
         "format-icons": {
             "urgent": "",
             "active": "",
             "default": ""
+        },
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<spotify>": "",
+            "class<Brave-browser>": "",
+            "class<kitty>": "",
+            "class<code>": "",
+            "class<discord>": "",
+            "class<bruno>": "󰩃",
+            "class<dbeaver>": "",
+            "class<Brave-browser> title<.*GitHub.*>": ""
         }
     },
     "mpris": {
-        "format": "{player_icon} {title} - {artist}",
-        "format-paused": "{status_icon} <i>{title} - {artist}</i>",
+        // "format": "{status_icon} {title} <span color='#999'>({position}/{length})</span>",
+        "format": "{status_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "dynamic-len": 40,
+        "dynamic-importance-order": ["title","position", "length", "artist", "album"],
         "player-icons": {
             "default": "▶",
             "mpv": "🎵"
         },
         "status-icons": {
-            "paused": "⏸"
-        }
+            "playing": "⏸",
+            "paused": "▶"
+        },
+        "interval": 1
     },
+    // "custom/mpris-prev": {
+    //     "format": "󰒮",
+    //     "on-click": "playerctl previous",
+    //     "tooltip": false
+    // },
+    // "custom/mpris-next": {
+    //     "format": "󰒭",
+    //     "on-click": "playerctl next",
+    //     "tooltip": false
+    // },
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
@@ -90,6 +116,7 @@
     },
     "group/hardware": {
 		"orientation": "horizontal",
+        "disable-scroll": true,
 		"modules": [
 			"cpu",
 			"memory",
@@ -98,7 +125,8 @@
 	},
     "battery": {
         "states": {
-            // "good": 95,
+            "full": 80,
+            "good": 70,
             "warning": 30,
             "critical": 15
         },
@@ -120,15 +148,18 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "<span color='#e74c3c'></span> {format_source}",
+        "format-source": "",
+        "format-source-muted": "<span color='#e74c3c' ></span>",
         "format-icons": {
             "headphone": "",
+            "headphone-muted": "<span color='#e74c3c' ></span>",
             "hands-free": "",
-            "headset": "",
+            "handset-muted": "<span color='#e74c3c' ></span>",
+            "headset": "󰋋",
+            "headset-muted": "<span color='#e74c3c' >󰟎</span>",
             "phone": "",
             "portable": "",
             "car": "",
@@ -185,6 +216,11 @@
     "custom/arch": {
         "format": "",
         "tooltip": false,
-        "on-click": "brave https://archlinux.org/packages/"
+        "on-click": "brave https://aur.archlinux.org/packages/"
+    },
+    "custom/swaync": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "swaync-client --toggle-panel"
     }
 }

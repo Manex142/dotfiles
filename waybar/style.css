@@ -6,13 +6,30 @@
 }
 
 window#waybar {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
 }
 
 #hardware, #workspaces {
     border-right: 2px solid azure;
     border-left: 2px solid azure;
     border-radius: 10px;
+    padding: 0 15px;
+    background: rgba(0, 128, 255, 0.1);
+}
+
+#workspaces button {
+    padding: 0 8px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#workspaces button.active {
+    background: rgba(0, 200, 255, 0.4);
+    color: #00ff59;
+    font-weight: bold;
 }
 
 /* Separators */
@@ -24,6 +41,61 @@ window#waybar {
 #pulseaudio, #network, #memory, #cpu, 
 #temperature, #battery, #clock, #tray, 
 #custom-power, #custom-arch, #workspaces,
-#window {
-    padding: 0 10px;
+#window, #mpris, #custom-swaync {
+    padding: 0 12px;
+}
+
+
+#custom-arch {
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+#mpris {
+    font-size: 15px;
+    color: #00ff59;
+}
+
+#clock {
+    font-size: 17px;
+    color: #c5996b;
+}
+
+#battery {
+    color: #2ecc71;
+}
+
+/* Battery color based on percentage */
+#battery.full {
+    color: #2ecc71;  /* Verde - lleno */
+}
+
+#battery.good {
+    color: #3498db;  /* Azul - bien */
+}
+
+#battery.warning {
+    color: #f39c12;  /* Naranja - advertencia */
+}
+
+#battery.critical {
+    color: #e74c3c;  /* Rojo - crítico */
+}
+
+#custom-power {
+    font-size: 18px;
+    color: #e74c3c;
+}
+
+/* Pulseaudio colors */
+#pulseaudio {
+    color: #9b59b6;  /* Púrpura */
+}
+
+#network {
+    color: #1abc9c;  /* Turquesa */
+}
+
+#custom-mpris-prev, #custom-mpris-next {
+    font-size: 18px;
 }

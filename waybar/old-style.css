@@ -1,0 +1,34 @@
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    color: azure;
+    font-size: 16px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#hardware, #workspaces {
+    border-right: 2px solid azure;
+    border-left: 2px solid azure;
+    border-radius: 10px;
+}
+
+/* Separators */
+#cpu, #memory, #battery, #pulseaudio, #clock, #tray {
+    border-image: linear-gradient(to bottom, transparent, white 50%, transparent) 1 100%;
+    border-right: 2px solid;
+}
+
+#pulseaudio, #network, #memory, #cpu, 
+#temperature, #battery, #clock, #tray, 
+#custom-power, #custom-arch, #workspaces,
+#window, #mpris {
+    padding: 0 10px;
+}
+
+
+#custom-mpris-prev, #custom-mpris-next {
+    font-size: 30;
+}
